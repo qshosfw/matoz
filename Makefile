@@ -7,12 +7,12 @@ TARGET = firmware
 #======== STOCK QUANSHENG FERATURES ========#
 ENABLE_AIRCOPY 							:= 0
 # 3856 bytes
-ENABLE_FMRADIO							:= 1
+ENABLE_FMRADIO							:= 0
 # 84 bytes
-ENABLE_FLASHLIGHT_SOS       			:= 1
+ENABLE_FLASHLIGHT_SOS       			:= 0
 ENABLE_UART                 			:= 1
 ENABLE_UART_CAT             			:= 0
-# Bause we can cut more... - 4108 bytes
+# 4108 bytes
 ENABLE_DTMF_CALLING         			:= 0
 # 1750Hz & 1050Hz FN1 FN2 Tones
 ENABLE_DTMF_SIDETONES				    := 1
@@ -215,7 +215,7 @@ else
 	RM = rm -f
 	FixPath = $1
 	WHERE = which
-	K5PROG = utils/k5prog/k5prog -F -YYYYY -p /dev/ttyUSB3 -b
+	K5PROG = utils/k5prog/k5prog -F -YYYYY -p /dev/ttyUSB0 -b
 endif
 
 

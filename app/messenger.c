@@ -675,6 +675,12 @@ void MSG_StorePacket(const uint16_t interrupt_bits)
 #endif	
 					gUpdateStatus = true;
 					gUpdateDisplay = true;
+
+					BK4819_DisableDTMF();
+					RADIO_SetTxParameters();
+					SYSTEM_DelayMs(500);
+					BK4819_ExitTxMute();
+					BK4819_PlayRoger(99);
 				}
 #endif
 			}
@@ -702,33 +708,27 @@ void MSG_StorePacket(const uint16_t interrupt_bits)
 				UART_printf("SMS<%s\r\n", &msgFSKBuffer[2]);
 #endif
 
-#ifdef ENABLE_MESSENGER_DELIVERY_NOTIFICATION
-				BK4819_DisableDTMF();
-				RADIO_SetTxParameters();
-				SYSTEM_DelayMs(500);
-				BK4819_ExitTxMute();
-				BK4819_PlayRoger(99);
-#endif
+
 			}
 
-			if (gAppToDisplay != APP_MESSENGER)
-			{
-				hasNewMessage = true;
-				gUpdateStatus = true;
 				gUpdateDisplay = true;
-				UI_DisplayStatus();
-			}
-			else
-			{
-				gUpdateDisplay = true;
-			}
+			
 		}
 
 		gFSKWriteIndex = 0;
 		// Transmit a message to the sender that we have received the message (Unless it's a service message)
 		if (msgFSKBuffer[0] == 'M' && msgFSKBuffer[1] == 'S' && msgFSKBuffer[2] != 0x1b)
 		{
+			#ifdef ENABLE_MESSENGER_DELIVERY_NOTIFICATION
 			MSG_Send("\x1b\x1b\x1bRCVD                       ", true);
+			#endif
+			if (rx_finished && gAppToDisplay != APP_MESSENGER)
+			{
+				hasNewMessage = true;
+				gUpdateStatus = true;
+				gUpdateDisplay = true;
+				UI_DisplayStatus();
+			}
 		}
 	}
 }

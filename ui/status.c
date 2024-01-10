@@ -79,8 +79,18 @@ void UI_DisplayStatus(void) {
 
  char String[32];
 #ifdef ENABLE_STATUS_BATTERY_PERC
-  sprintf(String, "%s %s %s %s %s %s %s      %u%%",
-#else
+ char Perc[4];
+ char Format[32];
+ sprintf(Perc, "%u%%", BATTERY_VoltsToPercent(gBatteryVoltageAverage));
+  if (strlen(Perc) == 3) { 
+    strcpy(Format, "%s %s %s %s %s %s %s       %u%%"); //7s +1 "_00%"
+  } else if (strlen(Perc) == 2) { 
+    strcpy(Format, "%s %s %s %s %s %s %s        %u%%"); //8s +2 "__0%"
+  } else {
+    strcpy(Format, "%s %s %s %s %s %s %s      %u%%"); //6s "000%"
+  }
+    sprintf(String, Format,
+#else 
   sprintf(String, "%s %s %s %s %s %s %s",
 #endif
           isPowerSave ? "S" : " ", //
