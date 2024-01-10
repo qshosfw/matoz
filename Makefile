@@ -7,9 +7,9 @@ TARGET = firmware
 #======== STOCK QUANSHENG FERATURES ========#
 ENABLE_AIRCOPY 							:= 0
 # 3856 bytes
-ENABLE_FMRADIO							:= 0
+ENABLE_FMRADIO							:= 1
 # 84 bytes
-ENABLE_FLASHLIGHT_SOS       			:= 0
+ENABLE_FLASHLIGHT_SOS       			:= 1
 ENABLE_UART                 			:= 1
 ENABLE_UART_CAT             			:= 0
 # Bause we can cut more... - 4108 bytes
@@ -56,7 +56,7 @@ ENABLE_MESSENGER_SHOW_RX_TX_FREQ		:= 0
 ENABLE_MESSENGER_UART					:= 1
 
 # ---- EXTRA: SPECTRUM ----
-ENABLE_SPECTRUM             			:= 0
+ENABLE_SPECTRUM             			:= 1
 ENABLE_SPECTRUM_NUNU           			:= 0
 SPECTRUM_AUTOMATIC_SQUELCH  			:= 1
 SPECTRUM_EXTRA_VALUES       			:= 1
