@@ -1,37 +1,73 @@
 #include "appmenu.h"
+#include "../helper/measurements.h"
+#include "../misc.h"
+#include "../ui/ui.h"
+#include <stdio.h>
+
+uint16_t APPMENU_cursor;
+
+void APPMENU_move(bool down) {
+  if (down) {
+      if (APPMENU_cursor == 3) {
+        APPMENU_cursor = 0;
+      } else {
+        APPMENU_cursor++;
+      }
+  } else {
+      if (APPMENU_cursor == 0) {
+        APPMENU_cursor = 3;
+      } else {
+        APPMENU_cursor--;
+      }
+  }
+    gUpdateDisplay = true;
+}
 
 void UI_DisplayAppMenu() {
+  char String[32];
+  char itemName[16];
   memset(gFrameBuffer, 0, sizeof(gFrameBuffer));
-  
-     // UI_PrintStringSmallest("Press MENU to enter MENU", 0, 8, false, true);
 
- //   UI_PrintStringSmallest("Telegram - https://t.me/PMR446PT", 0, 0, false, true);
- //   UI_PrintStringSmallest("Matoz - https://github.com/spm81", 0, 50, false, true);
-/*
-  UI_PrintStringSmallest("App menu", 0, 1, false, true);
+  const uint8_t count = 200;
+  const uint8_t perScreen = 7;
+  const uint8_t offset = Clamp(APPMENU_cursor - 2, 0, count - perScreen);
+  for (uint8_t i = 0; i < perScreen; ++i) {
+    uint8_t itemIndex = i + offset;
+    uint8_t y = i * 8 + 1;
+    uint8_t *pLine = gFrameBuffer[i];
 
-  UI_PrintStringSmallest("Press MENU to enter Menu", 0, 10, false, true);
-  UI_PrintStringSmallest("1. Edit Scanlist", 0, 16, false, true);
+    bool isCurrent = APPMENU_cursor == itemIndex;
 
-*/
+    if (isCurrent) {
+      memset(pLine, 127, LCD_WIDTH);
+    }
 
- // UI_PrintStringSmallest("     Press MENU to enter Menu", 0, 1, false, true);
-  //	UI_PrintString("APP MENU", 0, 127, 0, 9, true);
-#ifdef ENABLE_MESSENGER
-  UI_PrintStringSmallest("M. MENU           0. Info", 0, 10, false, true);
-#else
-  UI_PrintStringSmallest("M. MENU", 0, 10, false, true);
-#endif
+    switch (itemIndex) {
+      case 0:
+        sprintf(itemName, "SETTINGS");
+        break;
+      case 1:
+        sprintf(itemName, "Edit Scanlist");
+        break;
+      case 2:
+        sprintf(itemName, "Messenger");
+        break;
+      case 3:
+        sprintf(itemName, "Info");
+        break;
+      default:
+        sprintf(itemName, "?");
+        break;
+    }
 
-  UI_PrintStringSmallest("1. Edit Scanlist", 0, 19, false, true);
 
-#ifdef ENABLE_MESSENGER
-  UI_PrintStringSmallest("2. Messenger", 0, 28, false, true);
- #else 
-  UI_PrintStringSmallest("0. Info", 0, 28, false, true);
-#endif
+    sprintf(String, "%s", itemName);
+
+    UI_PrintStringSmallest(String, 1, y, false, !isCurrent);
+  }
+
   ST7565_BlitFullScreen();
-      
   gUpdateDisplay = true;
 
 }
+

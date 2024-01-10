@@ -11,72 +11,25 @@ void APPMENU_ProcessKeys(KEY_Code_t Key, bool bKeyPressed, bool bKeyHeld) {
   case KEY_EXIT:
     gRequestDisplayScreen = DISPLAY_MAIN;
     break;
-
+  case KEY_UP:
+    APPMENU_move(false);
+    break;
+  case KEY_DOWN:
+    APPMENU_move(true);
+    break;
+  case KEY_PTT:
   case KEY_MENU:
+    switch (APPMENU_cursor) {
+      case 0:
+      case 1:
+      case 2:
+      case 3:
+      default:
+        break;
+    }
     gRequestDisplayScreen = DISPLAY_MENU;
 	  break;
 
-  case KEY_0:
-	UI_DisplayWelcome();
-    //gRequestDisplayScreen = DISPLAY_MAIN;
-	  break;
-
-  case KEY_1:
-    gAppToDisplay = APP_SCANLIST;
-    gRequestDisplayScreen = DISPLAY_MAIN;
-    break;
-#ifdef ENABLE_MESSENGER
-#if defined (ENABLE_MESSENGER_SHOW_RX_FREQ) && !defined (ENABLE_MESSENGER_SHOW_RX_TX_FREQ)
-  case KEY_2:
-    hasNewMessage = false;
-    uint32_t frequency = gEeprom.VfoInfo[gEeprom.TX_CHANNEL].pTX->Frequency;
-    if ( IsTXAllowed(gEeprom.VfoInfo[gEeprom.TX_CHANNEL].pTX->Frequency) ) {
-      frequency = GetScreenF(frequency);
-      sprintf(msgFreqInfo, "%u.%05u Mhz", frequency / 100000, frequency % 100000);
-    } else {
-      sprintf(msgFreqInfo, "TX DISABLE");
-    }
-    gUpdateStatus = true;
-    gAppToDisplay = APP_MESSENGER;
-	  gRequestDisplayScreen = DISPLAY_MAIN;
-    break;
-#elif defined (ENABLE_MESSENGER_SHOW_RX_TX_FREQ) && !defined (ENABLE_MESSENGER_SHOW_RX_FREQ) || defined (ENABLE_MESSENGER_SHOW_RX_TX_FREQ) && defined (ENABLE_MESSENGER_SHOW_RX_FREQ)
-  case KEY_2:
-    hasNewMessage = false;
-    uint32_t txFrequency = gEeprom.VfoInfo[gEeprom.TX_CHANNEL].pTX->Frequency;
-    uint32_t rxFrequency = gEeprom.VfoInfo[gEeprom.RX_CHANNEL].pRX->Frequency;
-    
-    if (IsTXAllowed(txFrequency)) {
-      txFrequency = GetScreenF(txFrequency);
-      rxFrequency = GetScreenF(rxFrequency);
-      sprintf(msgFreqInfo, "R:%u.%05u T:%u.%05u Mhz", rxFrequency / 100000, rxFrequency % 100000, txFrequency / 100000, txFrequency % 100000);
-    } else {
-      sprintf(msgFreqInfo, "TX DISABLE");
-    }
-
-    gUpdateStatus = true;
-    gAppToDisplay = APP_MESSENGER;
-    gRequestDisplayScreen = DISPLAY_MAIN;
-    break;
-#else
-  case KEY_2:
-    hasNewMessage = false;    
-    gUpdateStatus = true;
-    gAppToDisplay = APP_MESSENGER;
-    gRequestDisplayScreen = DISPLAY_MAIN;    
-    break;
-#endif	
-#endif	
-/*
-  case KEY_1:
-    gAppToDisplay = APP_SPLIT;
-    gRequestDisplayScreen = DISPLAY_MAIN;
-    break;
-  case KEY_2:
-    gAppToDisplay = APP_OOK;
-    gRequestDisplayScreen = DISPLAY_MAIN;
-    break;
-*/
   default:
     break;
   }
