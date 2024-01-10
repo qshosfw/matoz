@@ -14,7 +14,7 @@
  *     limitations under the License.
  */
 
-#include "../app/spectrum.h"
+#include "../main/spectrum.h"
 #include "finput.h"
 #include <string.h>
 #define F_MIN FrequencyBandTable[0].lower

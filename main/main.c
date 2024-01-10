@@ -14,24 +14,24 @@
  *     limitations under the License.
  */
 
-#include "app/action.h"
-#include "app/app.h"
+#include "main/action.h"
+#include "main/app.h"
 #include "finput.h"
 #include <string.h>
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
-#include "app/generic.h"
-#include "app/main.h"
-#include "app/scanner.h"
+#include "main/generic.h"
+#include "main/main.h"
+#include "main/scanner.h"
 #if defined(ENABLE_SPECTRUM)
-#include "app/spectrum.h"
+#include "main/spectrum.h"
 #endif
 #if defined(ENABLE_SPECTRUM_NUNU)
-#include "app/spectrumnunu.h"
+#include "main/spectrumnunu.h"
 #endif
 #if defined(ENABLE_MESSENGER)
-#include "app/messenger.h"
+#include "apps/messenger.h"
 #endif
 #ifdef ENABLE_MESSENGER
 #include "../ui/messenger.h"
@@ -48,7 +48,7 @@
 #include "ui/inputbox.h"
 #include "ui/ui.h"
 #ifdef ENABLE_LIVESEEK_MHZ_KEYPAD
-#include "app/ceccommon.h"
+#include "main/ceccommon.h"
 #endif
 
 static void SwitchActiveVFO() {

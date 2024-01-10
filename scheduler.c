@@ -15,9 +15,9 @@
  */
 
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
-#include "app/scanner.h"
+#include "main/scanner.h"
 #include "audio.h"
 #include "functions.h"
 #include "helper/battery.h"

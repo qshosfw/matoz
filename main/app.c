@@ -14,29 +14,29 @@
  *     limitations under the License.
  */
 
-#include "app/action.h"
+#include "main/action.h"
 #include <string.h>
 #if defined(ENABLE_AIRCOPY)
-#include "app/aircopy.h"
+#include "main/aircopy.h"
 #endif
 #if defined(ENABLE_AM_FIX)
 #include "am_fix.h"
 #endif
-#include "app/app.h"
+#include "main/app.h"
 #include "dtmf.h"
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
 #include "appmenu.h"
-#include "app/generic.h"
-#include "app/main.h"
-#include "app/menu.h"
-#include "app/scanner.h"
+#include "main/generic.h"
+#include "main/main.h"
+#include "main/menu.h"
+#include "main/scanner.h"
 #if defined(ENABLE_UART)
-#include "app/uart.h"
+#include "main/uart.h"
 #endif
 #ifdef ENABLE_MESSENGER
-	#include "messenger.h"
+	#include "apps/messenger.h"
 #endif
 #include "../apps/scanlist.h"
 #include "ARMCM0.h"

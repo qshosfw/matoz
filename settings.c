@@ -16,7 +16,7 @@
 
 #include <string.h>
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
 #include "driver/eeprom.h"
 #if defined(ENABLE_UART)
@@ -25,7 +25,7 @@
 #include "misc.h"
 #include "settings.h"
 #ifdef ENABLE_LIVESEEK_MHZ_KEYPAD
-#include "app/ceccommon.h"
+#include "main/ceccommon.h"
 #endif
 EEPROM_Config_t gEeprom;
 

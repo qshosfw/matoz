@@ -16,7 +16,7 @@
 
 #include "menu.h"
 #ifdef ENABLE_DTMF_CALLING
-#include "../app/dtmf.h"
+#include "../main/dtmf.h"
 #endif
 #include "../bitmaps.h"
 #include "../dcs.h"

@@ -15,12 +15,12 @@
  */
 
 #include <string.h>
-#include "app/dtmf.h"
+#include "main/dtmf.h"
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
 #include "appmenu.h"
-#include "app/scanner.h"
+#include "main/scanner.h"
 #include "driver/keyboard.h"
 #include "misc.h"
 #if defined(ENABLE_AIRCOPY)

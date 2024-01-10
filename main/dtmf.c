@@ -17,9 +17,9 @@
 
 #include <string.h>
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
-#include "app/scanner.h"
+#include "main/scanner.h"
 #include "bsp/dp32g030/gpio.h"
 #include "driver/bk4819.h"
 #include "driver/eeprom.h"

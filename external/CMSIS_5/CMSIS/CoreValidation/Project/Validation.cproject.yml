@@ -3,7 +3,7 @@
 project:
   layers:
     # App: CMSIS-Core Validation for Cortex-M
-    - layer: ../Layer/App/Validation_Cortex-M/App.clayer.yml
+    - layer: ../Layer/main/Validation_Cortex-M/App.clayer.yml
       for-context:
         - +CM0
         - +CM0plus
@@ -28,7 +28,7 @@ project:
         - +CM85NS
 
     # App: CMSIS-Core Validation for Cortex-A
-    - layer: ../Layer/App/Validation_Cortex-A/App.clayer.yml
+    - layer: ../Layer/main/Validation_Cortex-A/App.clayer.yml
       for-context:
         - +CA5
         - +CA7

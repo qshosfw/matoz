@@ -21,7 +21,7 @@
 #include <string.h>
 
 #include "am_fix.h"
-#include "app/main.h"
+#include "main/main.h"
 #include "board.h"
 #include "driver/bk4819.h"
 #include "external/printf/printf.h"

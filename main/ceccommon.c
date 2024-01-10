@@ -33,7 +33,7 @@ TADC_RANGE CW_KEY_ADC[3];
 
 //================================= For Reduce Use Memory ====================
 //gMR_ChannelAttributes[207]; -> function
-//resize to 7 byte and Move to app/ceccommon.c 
+//resize to 7 byte and Move to main/ceccommon.c 
 uint16_t CEC_GetRssi() 
 {
   int _wait_count = 0;

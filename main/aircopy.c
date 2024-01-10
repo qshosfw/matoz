@@ -14,7 +14,7 @@
  *     limitations under the License.
  */
 
-#include "app/aircopy.h"
+#include "main/aircopy.h"
 #include "audio.h"
 #include "driver/bk4819.h"
 #include "driver/crc.h"

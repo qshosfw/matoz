@@ -18,8 +18,8 @@
 #define SPECTRUM_H
 
 #include "../am_fix.h"
-#include "../app/finput.h"
-#include "../app/uart.h"
+#include "../main/finput.h"
+#include "../main/uart.h"
 #include "../bitmaps.h"
 #include "../board.h"
 #include "../bsp/dp32g030/gpio.h"

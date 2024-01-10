@@ -16,9 +16,9 @@
  */
 
 #include <string.h>
-#include "app/dtmf.h"
+#include "main/dtmf.h"
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
 #include "board.h"
 #include "bsp/dp32g030/gpio.h"
@@ -44,7 +44,7 @@
 #include "sram-overlay.h"
 #endif
 #ifdef ENABLE_LIVESEEK_MHZ_KEYPAD
-#include "app/ceccommon.h"
+#include "main/ceccommon.h"
 #endif
 
 static const uint32_t gDefaultFrequencyTable[5] = {

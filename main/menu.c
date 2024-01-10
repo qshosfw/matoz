@@ -20,11 +20,11 @@
 #include "ARMCM0.h"
 #endif
 #ifdef ENABLE_DTMF_CALLING
-#include "app/dtmf.h"
+#include "main/dtmf.h"
 #endif
-#include "app/generic.h"
-#include "app/menu.h"
-#include "app/scanner.h"
+#include "main/generic.h"
+#include "main/menu.h"
+#include "main/scanner.h"
 #include "audio.h"
 #include "board.h"
 #include "bsp/dp32g030/gpio.h"
@@ -44,7 +44,7 @@
 #include "ui/menu.h"
 #include "ui/ui.h"
 #ifdef ENABLE_LIVESEEK_MHZ_KEYPAD
-#include "app/ceccommon.h"
+#include "main/ceccommon.h"
 #endif
 
 /*#ifndef ARRAY_SIZE

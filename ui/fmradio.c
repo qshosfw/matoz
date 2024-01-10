@@ -15,7 +15,7 @@
  */
 
 #include <string.h>
-#include "../app/fm.h"
+#include "../main/fm.h"
 #include "../driver/st7565.h"
 #include "../external/printf/printf.h"
 #include "../misc.h"

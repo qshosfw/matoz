@@ -17,7 +17,7 @@
 #include "ARMCM0.h"
 #include <string.h>
 #if defined(ENABLE_UART)
-#include "../app/uart.h"
+#include "../main/uart.h"
 #endif
 #include "../audio.h"
 #include "../driver/keyboard.h"

@@ -23,7 +23,7 @@
 #include "../driver/uart.h"
 
 #ifdef ENABLE_CW
-#include "../app/scanner.h"
+#include "../main/scanner.h"
 #include "../audio.h"
 #include "../driver/bk4819.h"
 #include "../frequencies.h"
@@ -32,7 +32,7 @@
 #include "../settings.h"
 #include "../ui/inputbox.h"
 #include "../ui/ui.h"
-#include "../app/generic.h"
+#include "../main/generic.h"
 #endif
 
 #ifdef ENABLE_MDC

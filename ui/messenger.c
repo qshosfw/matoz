@@ -4,7 +4,7 @@
 #include <string.h>
 
 #include <string.h>
-#include "app/messenger.h"
+#include "apps/messenger.h"
 #include "driver/st7565.h"
 #include "external/printf/printf.h"
 #include "misc.h"

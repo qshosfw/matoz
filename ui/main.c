@@ -16,8 +16,8 @@
  */
 
 #include "../ui/main.h"
-#include "../app/dtmf.h"
-#include "../app/finput.h"
+#include "../main/dtmf.h"
+#include "../main/finput.h"
 #include "../bitmaps.h"
 #include "../driver/bk4819.h"
 #include "../driver/st7565.h"
@@ -33,7 +33,7 @@
 #include "../ui/rssi.h"
 #include "../ui/ui.h"
 #ifdef ENABLE_LIVESEEK_MHZ_KEYPAD
-#include "app/ceccommon.h"
+#include "main/ceccommon.h"
 #endif
 #include <string.h>
 

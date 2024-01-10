@@ -109,7 +109,7 @@ ifeq ($(ENABLE_UART),1)
 OBJS += driver/aes.o
 endif
 ifeq ($(ENABLE_MESSENGER),1)
-	OBJS += app/messenger.o
+	OBJS += apps/messenger.o
 endif
 OBJS += driver/backlight.o
 ifeq ($(ENABLE_FMRADIO),1)
@@ -135,33 +135,33 @@ OBJS += driver/uart.o
 endif
 
 # Main
-OBJS += app/action.o
+OBJS += main/action.o
 ifeq ($(ENABLE_AM_FIX),1)
 OBJS += am_fix.o
 endif
 ifeq ($(ENABLE_AIRCOPY),1)
-OBJS += app/aircopy.o
+OBJS += main/aircopy.o
 endif
-OBJS += app/app.o
-OBJS += app/dtmf.o
-OBJS += app/finput.o
+OBJS += main/app.o
+OBJS += main/dtmf.o
+OBJS += main/finput.o
 ifeq ($(ENABLE_FMRADIO),1)
-OBJS += app/fm.o
+OBJS += main/fm.o
 endif
-OBJS += app/generic.o
-OBJS += app/main.o
-OBJS += app/menu.o
-OBJS += app/appmenu.o
-OBJS += app/scanner.o
+OBJS += main/generic.o
+OBJS += main/main.o
+OBJS += main/menu.o
+OBJS += main/appmenu.o
+OBJS += main/scanner.o
 ifeq ($(ENABLE_SPECTRUM), 1)
-OBJS += app/spectrum.o
+OBJS += main/spectrum.o
 endif
 ifeq ($(ENABLE_SPECTRUM_NUNU), 1)
-OBJS += app/spectrumnunu.o
+OBJS += main/spectrumnunu.o
 endif
 
 ifeq ($(ENABLE_UART),1)
-OBJS += app/uart.o
+OBJS += main/uart.o
 endif
 OBJS += audio.o
 OBJS += bitmaps.o
@@ -188,7 +188,7 @@ ifeq ($(ENABLE_MESSENGER),1)
 	OBJS += ui/messenger.o
 endif
 ifeq ($(ENABLE_LIVESEEK_MHZ_KEYPAD),1)
-OBJS += app/ceccommon.o
+OBJS += main/ceccommon.o
 endif
 OBJS += ui/helper.o
 OBJS += ui/inputbox.o

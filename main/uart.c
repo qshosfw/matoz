@@ -19,13 +19,13 @@
 #include "ARMCM0.h"
 #endif
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
 #ifdef ENABLE_MESSENGER
-#include "app/messenger.h"
+#include "apps/messenger.h"
 #include "external/printf/printf.h"
 #endif
-#include "app/uart.h"
+#include "main/uart.h"
 #include "board.h"
 #include "bsp/dp32g030/dma.h"
 #include "bsp/dp32g030/gpio.h"

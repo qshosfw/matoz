@@ -14,13 +14,13 @@
  *     limitations under the License.
  */
 
-#include "app/action.h"
-#include "app/app.h"
-#include "app/dtmf.h"
+#include "main/action.h"
+#include "main/app.h"
+#include "main/dtmf.h"
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
-#include "app/scanner.h"
+#include "main/scanner.h"
 #include "audio.h"
 #include "bsp/dp32g030/gpio.h"
 #include "driver/bk1080.h"

@@ -3,7 +3,7 @@
 project:
   layers:
     # App: CMSIS-Core Validation for Cortex-M (Bootloader part)
-    - layer: ../Layer/App/Bootloader_Cortex-M/App.clayer.yml
+    - layer: ../Layer/main/Bootloader_Cortex-M/App.clayer.yml
       for-context:
         - .AC6_low
         - .AC6_mid

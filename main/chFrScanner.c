@@ -1,6 +1,6 @@
 
-#include "app/app.h"
-#include "app/chFrScanner.h"
+#include "main/app.h"
+#include "main/chFrScanner.h"
 #include "functions.h"
 #include "misc.h"
 #include "settings.h"

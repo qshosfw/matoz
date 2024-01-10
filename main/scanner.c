@@ -14,8 +14,8 @@
  *     limitations under the License.
  */
 
-#include "app/generic.h"
-#include "app/scanner.h"
+#include "main/generic.h"
+#include "main/scanner.h"
 #include "audio.h"
 #include "driver/bk4819.h"
 #include "frequencies.h"

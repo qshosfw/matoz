@@ -1,7 +1,7 @@
 #include "appmenu.h"
 #include "../ui/welcome.h"
 #ifdef ENABLE_MESSENGER
-	#include "../app/messenger.h"
+	#include "../apps/messenger.h"
   #include "frequencies.h"
   #include "external/printf/printf.h"
   #include "settings.h"

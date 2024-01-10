@@ -14,10 +14,10 @@
  *     limitations under the License.
  */
 
-#include "app/app.h"
-#include "app/dtmf.h"
+#include "main/app.h"
+#include "main/dtmf.h"
 #ifdef ENABLE_MESSENGER
-	#include "app/messenger.h"
+	#include "apps/messenger.h"
 #endif
 
 #include "audio.h"
@@ -52,7 +52,7 @@
 
 #include "driver/eeprom.h"
 #ifdef ENABLE_LIVESEEK_MHZ_KEYPAD
-#include "app/ceccommon.h"
+#include "main/ceccommon.h"
 #endif
 
 void _putchar(char c) {

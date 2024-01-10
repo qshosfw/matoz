@@ -13,14 +13,14 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-#include "app/dtmf.h"
+#include "main/dtmf.h"
 #include "helper/measurements.h"
 #include <string.h>
 #if defined(ENABLE_FMRADIO)
-#include "app/fm.h"
+#include "main/fm.h"
 #endif
 #ifdef ENABLE_MESSENGER
-	#include "app/messenger.h"
+	#include "apps/messenger.h"
 #endif
 
 #include "audio.h"

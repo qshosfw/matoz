@@ -16,7 +16,7 @@
 
 #include <stdbool.h>
 #include <string.h>
-#include "app/scanner.h"
+#include "main/scanner.h"
 #include "dcs.h"
 #include "driver/st7565.h"
 #include "external/printf/printf.h"

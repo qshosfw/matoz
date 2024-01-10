@@ -15,9 +15,9 @@
  */
 
 #include <string.h>
-#include "app/action.h"
-#include "app/fm.h"
-#include "app/generic.h"
+#include "main/action.h"
+#include "main/fm.h"
+#include "main/generic.h"
 #include "audio.h"
 #include "bsp/dp32g030/gpio.h"
 #if defined(ENABLE_FMRADIO)
