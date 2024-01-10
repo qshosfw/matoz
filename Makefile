@@ -4,72 +4,73 @@
 
 TARGET = firmware
 
-#======== STOCK QUANSHENG FERATURES ========#
-ENABLE_AIRCOPY 							:= 0
+#============== STOCK QUANSHENG FERATURES ==============#
+ENABLE_AIRCOPY		 							:= 0
 # 3856 bytes
-ENABLE_FMRADIO							:= 0
+ENABLE_FMRADIO									:= 0
 # 84 bytes
-ENABLE_FLASHLIGHT_SOS       			:= 0
-ENABLE_UART                 			:= 1
-ENABLE_UART_CAT             			:= 0
+ENABLE_FLASHLIGHT_SOS			       			:= 0
+ENABLE_UART            			     			:= 1
+ENABLE_UART_CAT       			      			:= 0
 # 4108 bytes
-ENABLE_DTMF_CALLING         			:= 0
+ENABLE_DTMF_CALLING         					:= 0
 # 1750Hz & 1050Hz FN1 FN2 Tones
-ENABLE_DTMF_SIDETONES				    := 1
-ENABLE_TX1750 							:= 0
+ENABLE_DTMF_SIDETONES				    		:= 1
+ENABLE_TX1750 									:= 0
 # Keep this in stock options, and add option in mods for extra rogers
-ENABLE_ROGERBEEP            			:= 1
-ENABLE_MDC                  			:= 0
+ENABLE_ROGERBEEP        		    			:= 1
+ENABLE_MDC                 			 			:= 0
 
-#============== MODIFICATIONS =============#
+#==================== MODIFICATIONS ===================#
 # AM Modulation Fix - 544 bytes
-ENABLE_AM_FIX 							:= 1
+ENABLE_AM_FIX 									:= 1
 # Apply fix to Spectrum - 40 bytes
-ENABLE_AM_FIX_ON_SPECTRUM				:= 1
-ENABLE_SQUELCH_MORE_SENSITIVE			:= 1
+ENABLE_AM_FIX_ON_SPECTRUM						:= 1
+ENABLE_SQUELCH_MORE_SENSITIVE					:= 1
 # Restore FM in 1 second after RX - 0 bytes
-ENABLE_FMRADIO_FAST_RESTORE 			:= 1
+ENABLE_FMRADIO_FAST_RESTORE 					:= 1
 # Battery percentage - 296 bytes
-ENABLE_STATUS_BATTERY_PERC  			:= 1
+ENABLE_STATUS_BATTERY_PERC  					:= 1
 # Show current while charging - 136 bytes Thanks Tunas1337
-ENABLE_BATTERY_CHARGING					:= 0
+ENABLE_BATTERY_CHARGING							:= 0
 # Invert LCD Colors
-ENABLE_LCD_INVERT_OPTION				:= 0 
+ENABLE_LCD_INVERT_OPTION						:= 0 
 #ENABLE_LCD_CONTRAST_OPTION 		 	:= 0 # WIP
 # Mic Gain Bar while TXing - 255 bytes
-ENABLE_MIC_PLUS_GAIN_BAR_TX 			:= 1 
-ENABLE_NOSCANTIMEOUT        			:= 1
-ENABLE_KEEPNAMEONSAVE       			:= 1
-ENABLE_FASTER_CHANNEL_SCAN  			:= 1
+ENABLE_MIC_PLUS_GAIN_BAR_TX 					:= 1 
+ENABLE_NOSCANTIMEOUT       			 			:= 1
+ENABLE_KEEPNAMEONSAVE      			 			:= 1
+ENABLE_FASTER_CHANNEL_SCAN  					:= 1
 # CW Modulation
-ENABLE_CW                   			:= 1
+ENABLE_CW                   					:= 1
 
-#============ EXTRA: MESSENGER ============# 
-ENABLE_MESSENGER            			:= 1
-ENABLE_MESSENGER_DELIVERY_NOTIFICATION	:= 1
-ENABLE_MESSENGER_MORE_ONE_LINE			:= 1
+#================== EXTRA: MESSENGER ==================# 
+ENABLE_MESSENGER            					:= 1
+ENABLE_MESSENGER_DELIVERY_ACK_NOTIFICATION		:= 1
+ENABLE_MESSENGER_DELIVERY_SOUND_NOTIFICATION	:= 0
+ENABLE_MESSENGER_MORE_ONE_LINE					:= 1
 # 124 bytes
-ENABLE_MESSENGER_SHOW_RX_FREQ			:= 1
+ENABLE_MESSENGER_SHOW_RX_FREQ					:= 1
 # 124 (+20) bytes
-ENABLE_MESSENGER_SHOW_RX_TX_FREQ		:= 0
+ENABLE_MESSENGER_SHOW_RX_TX_FREQ				:= 0
 # 156 bytes
-ENABLE_MESSENGER_UART					:= 1
+ENABLE_MESSENGER_UART							:= 1
 
 # ---- EXTRA: SPECTRUM ----
-ENABLE_SPECTRUM             			:= 1
-ENABLE_SPECTRUM_NUNU           			:= 0
-SPECTRUM_AUTOMATIC_SQUELCH  			:= 1
-SPECTRUM_EXTRA_VALUES       			:= 1
-ENABLE_ALL_REGISTERS        			:= 0
-ENABLE_MATOZ_KEYS           			:= 1
+ENABLE_SPECTRUM             					:= 1
+ENABLE_SPECTRUM_NUNU           					:= 0
+SPECTRUM_AUTOMATIC_SQUELCH 			 			:= 1
+SPECTRUM_EXTRA_VALUES      			 			:= 1
+ENABLE_ALL_REGISTERS       			 			:= 0
+ENABLE_MATOZ_KEYS         			  			:= 1
 
 #Thanks to KD8CEC for sharing his code / We have to check the code better, i just code & paste it to the right places...
-ENABLE_LIVESEEK_MHZ_KEYPAD				:= 0
+ENABLE_LIVESEEK_MHZ_KEYPAD						:= 0
 
 # ---- DEBUGGING ----
 # ---- COMPILER/LINKER OPTIONS ----
-ENABLE_OVERLAY 							:= 0
-ENABLE_SWD 								:= 0
+ENABLE_OVERLAY 									:= 0
+ENABLE_SWD 										:= 0
 
 
 
@@ -348,8 +349,11 @@ endif
 ifeq ($(ENABLE_MESSENGER),1)
 	CFLAGS += -DENABLE_MESSENGER
 endif
-ifeq ($(ENABLE_MESSENGER_DELIVERY_NOTIFICATION),1)
-	CFLAGS += -DENABLE_MESSENGER_DELIVERY_NOTIFICATION
+ifeq ($(ENABLE_MESSENGER_DELIVERY_ACK_NOTIFICATION),1)
+	CFLAGS += -DENABLE_MESSENGER_DELIVERY_ACK_NOTIFICATION
+endif
+ifeq ($(ENABLE_MESSENGER_DELIVERY_SOUND_NOTIFICATION),1)
+	CFLAGS += -DENABLE_MESSENGER_DELIVERY_SOUND_NOTIFICATION
 endif
 ifeq ($(ENABLE_MESSENGER_MORE_ONE_LINE),1)
 	CFLAGS += -DENABLE_MESSENGER_MORE_ONE_LINE
