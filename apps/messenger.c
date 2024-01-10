@@ -697,7 +697,7 @@ void MSG_StorePacket(const uint16_t interrupt_bits)
 		// This delivery roger sound is supposed to play when an ACK is received,
 		// but it currently refuses to work?? when placed under the '+' ACK indicator code
 		// So, for now, it'll serve as a notification when receiving a message.
-		#ifdef ENABLE_MESSENGER_DELIVERY_NOTIFICATION
+		#ifdef ENABLE_MESSENGER_DELIVERY_SOUND
 					BK4819_DisableDTMF();
 					RADIO_SetTxParameters();
 					SYSTEM_DelayMs(500);
@@ -724,22 +724,13 @@ void MSG_StorePacket(const uint16_t interrupt_bits)
         }
 
 
-			}
+		}
 
-			if (gAppToDisplay != APP_MESSENGER)
-			{
-				hasNewMessage = true;
-				gUpdateStatus = true;
-				gUpdateDisplay = true;
-				UI_DisplayStatus();
-			}
-			else
-			{
-				gUpdateDisplay = true;
-			}
+	
 		}
 
 		gFSKWriteIndex = 0;
+		
 		// Transmit a message to the sender that we have received the message (Unless it's a service message)
 		if (msgFSKBuffer[0] == 'M' && msgFSKBuffer[1] == 'S' && msgFSKBuffer[2] != 0x1b)
 		{

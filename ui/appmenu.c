@@ -12,18 +12,25 @@
   #include "settings.h"
 #endif
 
+#if defined(ENABLE_SPECTRUM)
+#include "main/spectrum.h"
+#include "functions.h"
+#endif
+
+#include "ui/scanner.h"
+
 uint16_t APPMENU_cursor;
 
 void APPMENU_move(bool down) {
   if (down) {
-      if (APPMENU_cursor == 3) {
+      if (APPMENU_cursor == 7) {
         APPMENU_cursor = 0;
       } else {
         APPMENU_cursor++;
       }
   } else {
       if (APPMENU_cursor == 0) {
-        APPMENU_cursor = 3;
+        APPMENU_cursor = 7;
       } else {
         APPMENU_cursor--;
       }
@@ -40,8 +47,8 @@ void UI_DisplayAppMenu() {
   char itemName[16];
   memset(gFrameBuffer, 0, sizeof(gFrameBuffer));
 
-  const uint8_t count = 4;
-  const uint8_t perScreen = 4;
+  const uint8_t count = 8;
+  const uint8_t perScreen = 7;;
   const uint8_t offset = Clamp(APPMENU_cursor - 2, 0, count - perScreen);
   for (uint8_t i = 0; i < perScreen; ++i) {
     uint8_t itemIndex = i + offset;
@@ -56,7 +63,7 @@ void UI_DisplayAppMenu() {
 
     switch (itemIndex) {
       case 0:
-        sprintf(itemName, "SETTINGS");
+        sprintf(itemName, "Settings");
         break;
       case 1:
         sprintf(itemName, "Edit Scanlist");
@@ -65,6 +72,18 @@ void UI_DisplayAppMenu() {
         sprintf(itemName, "Messenger");
         break;
       case 3:
+        sprintf(itemName, "Spectrum");
+        break;
+      case 4:
+        sprintf(itemName, "FM Radio");
+        break;
+      case 5:
+        sprintf(itemName, "Air Copy");
+        break;
+      case 6:
+        sprintf(itemName, "Scanner");
+        break;
+      case 7:
         sprintf(itemName, "Info");
         break;
       default:
@@ -149,6 +168,23 @@ void APPMENU_ProcessKeys(KEY_Code_t Key, bool bKeyPressed, bool bKeyHeld) {
 #endif	
 #endif
       case 3:
+        gCurrentFunction = 0;
+        APP_RunSpectrum();
+      break;
+      case 4:
+        #if defined(ENABLE_FMRADIO)
+		    UI_DisplayFM();
+        #endif
+      break;
+      case 5:
+        #if defined(ENABLE_AIRCOPY)
+		    UI_DisplayAircopy();
+        #endif
+      break;
+      case 6:
+       UI_DisplayScanner();
+       break;
+      case 7:
       	UI_DisplayWelcome();
         break;
       default:
