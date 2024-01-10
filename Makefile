@@ -19,7 +19,7 @@ ENABLE_DTMF_SIDETONES				    		:= 1
 ENABLE_TX1750 									:= 0
 # Keep this in stock options, and add option in mods for extra rogers
 ENABLE_ROGERBEEP            			:= 1
-ENABLE_MDC                  			:= 1
+ENABLE_MDC                  			:= 0
 
 #==================== MODIFICATIONS ===================#
 # AM Modulation Fix - 544 bytes
@@ -48,7 +48,7 @@ ENABLE_CW                   					:= 1
 ENABLE_MESSENGER            			:= 1
 ENABLE_MESSENGER_DELIVERY_NOTIFICATION	:= 1
 ENABLE_MESSENGER_MORE_ONE_LINE			:= 1
-ENABLE_MESSENGER_WARN_UNKWN_FSK			:= 1
+ENABLE_MESSENGER_SHOW_INVALID_FSK		:= 0
 # 124 bytes
 ENABLE_MESSENGER_SHOW_RX_FREQ					:= 1
 # 124 (+20) bytes
@@ -358,8 +358,8 @@ endif
 ifeq ($(ENABLE_MESSENGER_MORE_ONE_LINE),1)
 	CFLAGS += -DENABLE_MESSENGER_MORE_ONE_LINE
 endif
-ifeq ($(ENABLE_MESSENGER_WARN_UNKWN_FSK),1)
-	CFLAGS += -DENABLE_MESSENGER_WARN_UNKWN_FSK
+ifeq ($(ENABLE_MESSENGER_SHOW_INVALID_FSK),1)
+	CFLAGS += -DENABLE_MESSENGER_SHOW_INVALID_FSK
 endif
 ifeq ($(ENABLE_MESSENGER_SHOW_RX_FREQ),1)
 	CFLAGS += -DENABLE_MESSENGER_SHOW_RX_FREQ

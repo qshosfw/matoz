@@ -714,11 +714,11 @@ void MSG_StorePacket(const uint16_t interrupt_bits)
 
         } else {
           // Invalid/unrecognized FSK Data
-          #ifdef ENABLE_MESSENGER_WARN_UNKWN_FSK
+          #ifdef ENABLE_MESSENGER_SHOW_INVALID_FSK
             #ifdef ENABLE_MESSENGER_MORE_ONE_LINE          
-            snprintf(rxMessage[4], TX_MSG_LENGTH + 2, "? INVALID %s", &msgFSKBuffer[2]);
+            snprintf(rxMessage[4], TX_MSG_LENGTH + 2, "? %s", &msgFSKBuffer[2]);
             #else
-            snprintf(rxMessage[3], TX_MSG_LENGTH + 2, "? INVALID %s", &msgFSKBuffer[2]);
+            snprintf(rxMessage[3], TX_MSG_LENGTH + 2, "? %s", &msgFSKBuffer[2]);
             #endif
           #endif
         }
