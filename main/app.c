@@ -27,7 +27,6 @@
 #if defined(ENABLE_FMRADIO)
 #include "main/fm.h"
 #endif
-#include "appmenu.h"
 #include "main/generic.h"
 #include "main/main.h"
 #include "main/menu.h"
@@ -70,6 +69,7 @@
 #include "ui/rssi.h"
 #include "ui/status.h"
 #include "ui/ui.h"
+#include "ui/appmenu.h"
 
 // original QS front end register settings
 const uint8_t origLnaShort = 3; //   0dB

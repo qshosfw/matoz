@@ -151,7 +151,6 @@ endif
 OBJS += main/generic.o
 OBJS += main/main.o
 OBJS += main/menu.o
-OBJS += main/appmenu.o
 OBJS += main/scanner.o
 ifeq ($(ENABLE_SPECTRUM), 1)
 OBJS += main/spectrum.o

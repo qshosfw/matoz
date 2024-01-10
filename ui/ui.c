@@ -19,7 +19,6 @@
 #if defined(ENABLE_FMRADIO)
 #include "main/fm.h"
 #endif
-#include "appmenu.h"
 #include "main/scanner.h"
 #include "driver/keyboard.h"
 #include "misc.h"
@@ -34,6 +33,7 @@
 #include "ui/main.h"
 #include "ui/menu.h"
 #include "ui/scanner.h"
+#include "ui/appmenu.h"
 #include "ui/ui.h"
 #include "../apps/scanlist.h"
 
