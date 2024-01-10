@@ -154,7 +154,6 @@ void APPMENU_ProcessKeys(KEY_Code_t Key, bool bKeyPressed, bool bKeyHeld) {
       default:
         break;
     }
-    APPMENU_close();
 	  break;
 
   default:
