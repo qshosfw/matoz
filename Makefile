@@ -210,13 +210,13 @@ ifeq ($(OS),Windows_NT)
 	RM = del /Q
 	FixPath = $(subst /,\,$1)
 	WHERE = where
-	K5PROG = utils/k5prog/k5prog.exe -F -YYYYY -p /dev/com9 -b
+	K5PROG = utils/k5prog/k5prog.exe -D -F -YYYYY -p /dev/com9 -b
 else
 	TOP := $(shell pwd)
 	RM = rm -f
 	FixPath = $1
 	WHERE = which
-	K5PROG = utils/k5prog/k5prog -F -YYYYY -p /dev/ttyUSB0 -b
+	K5PROG = utils/k5prog/k5prog -D -F -YYYYY -p /dev/ttyUSB0 -b
 endif
 
 
