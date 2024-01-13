@@ -37,7 +37,7 @@ void UI_DisplayWelcome(void) {
     memset(WelcomeString0, 0, sizeof(WelcomeString0));
     memset(WelcomeString1, 0, sizeof(WelcomeString1));
     if (gEeprom.POWER_ON_DISPLAY_MODE == POWER_ON_DISPLAY_MODE_VOLTAGE) {
-      sprintf(WelcomeString0, "VOLTAGE");
+      sprintf(WelcomeString0, "qshosfw");
       sprintf(WelcomeString1, "%d.%02dV", gBatteryVoltageAverage / 100,
               gBatteryVoltageAverage % 100);
     } else {

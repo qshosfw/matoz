@@ -1,3 +1,3 @@
-const char Version[] = "MCFW-" GIT_HASH;
-const char UART_Version[45] =
-    "UV-K5 Firmware, Open Edition, MCFW-" GIT_HASH "\r\n";
+const char Version[] = GIT_HASH;
+const char UART_Version[80] =
+    "QSH-OSFW " GIT_HASH " " __DATE__ " " __TIME__"\r\n";

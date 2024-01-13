@@ -10,12 +10,6 @@ An attempt to port unify as many of the many other fork's features as possible
 > Use this firmware at your own risk (entirely). There is absolutely no guarantee that it will work in any way shape or form on your radio(s), it may even brick your radio(s), in which case, you'd need to buy another radio.
 Anyway, have fun.
 
-For improved/better firmware and new features, you can find the following repositories by other collaborators:
-
-* https://github.com/fagci/uv-k5-firmware-fagci-mod
-* https://github.com/OneOfEleven/uv-k5-firmware-custom
-* https://github.com/Tunas1337/uv-k5-firmware (Check the branches)
-* https://github.com/rebezhir/openquack for Russian users
 
 ## Credits
 
