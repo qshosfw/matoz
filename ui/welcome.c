@@ -24,6 +24,18 @@
 #include "../version.h"
 #include <string.h>
 
+void UI_DisplayReleaseKeys(void)
+{
+	memset(gStatusLine,  0, sizeof(gStatusLine));
+	memset(gFrameBuffer, 0, sizeof(gFrameBuffer));
+
+	UI_PrintString("RELEASE", 0, 127, 1, 10, true);
+	UI_PrintString("ALL KEYS", 0, 127, 3, 10, true);
+
+	ST7565_BlitStatusLine();  // blank status line
+	ST7565_BlitFullScreen();
+}
+
 void UI_DisplayWelcome(void) {
   memset(gStatusLine, 0, sizeof(gStatusLine));
   memset(gFrameBuffer, 0, sizeof(gFrameBuffer));

@@ -164,6 +164,25 @@ void Main(void) {
 #endif
 
     BootMode = BOOT_GetMode();
+    
+  // wait for user to release all butts before moving on
+	  if (!GPIO_CheckBit(&GPIOC->DATA, GPIOC_PIN_PTT) ||
+	     KEYBOARD_Poll() != KEY_INVALID ||
+		   BootMode != BOOT_MODE_NORMAL)
+  	{	// keys are pressed
+		  UI_DisplayReleaseKeys();
+		  BACKLIGHT_TurnOn();
+		  i = 0;
+	  	while (i < 50)  // 500ms
+	  	{
+		  	i = (GPIO_CheckBit(&GPIOC->DATA, GPIOC_PIN_PTT) && KEYBOARD_Poll() == KEY_INVALID) ? i + 1 : 0;
+		  	SYSTEM_DelayMs(10);
+		  }
+	  	gKeyReading0 = KEY_INVALID;
+	  	gKeyReading1 = KEY_INVALID;
+	  	gDebounceCounter = 0;
+  }
+
     if (gEeprom.POWER_ON_PASSWORD < 1000000) {
       bIsInLockScreen = true;
       UI_DisplayLock();

@@ -22,6 +22,7 @@ void UI_DisplayInfo(void);
 void UI_DisplayVersion(void);
 void UI_DisplayVersionFM(void);
 void UI_Matoz(void);
+void UI_DisplayReleaseKeys(void);
 
 #endif
 
