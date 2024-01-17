@@ -21,7 +21,7 @@
 #endif
 #define MAX_MSG_LENGTH TX_MSG_LENGTH - 1
 
-#define NEXT_CHAR_DELAY 100 // 10ms tick
+#define NEXT_CHAR_DELAY 50 // 10ms tick
 
 char T9TableLow[9][4] = {{',', '.', '?', '!'}, {'a', 'b', 'c', '\0'}, {'d', 'e', 'f', '\0'}, {'g', 'h', 'i', '\0'}, {'j', 'k', 'l', '\0'}, {'m', 'n', 'o', '\0'}, {'p', 'q', 'r', 's'}, {'t', 'u', 'v', '\0'}, {'w', 'x', 'y', 'z'}};
 char T9TableUp[9][4] = {{',', '.', '?', '!'}, {'A', 'B', 'C', '\0'}, {'D', 'E', 'F', '\0'}, {'G', 'H', 'I', '\0'}, {'J', 'K', 'L', '\0'}, {'M', 'N', 'O', '\0'}, {'P', 'Q', 'R', 'S'}, {'T', 'U', 'V', '\0'}, {'W', 'X', 'Y', 'Z'}};
